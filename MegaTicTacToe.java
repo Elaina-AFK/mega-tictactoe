@@ -13,29 +13,12 @@ public class MegaTicTacToe {
         }
     }
 
-    private Position getPosition(Scanner sc) {
-        while (true) {
-            System.out.print("Input your play position: ");
-            String input = sc.nextLine();
-            try {
-                String[] posString = input.trim().split(" ");
-                Position position = new Position(posString[0], posString[1]);
-                if (!allBoards.availablePosition.havePosition(position)) {
-                    throw new Exception("Can't play there");
-                }
-                return position;
-            } catch (Exception e) {
-                System.out.println(e);
-                continue;
-            }
-        }
-    }
-
     public void play(Scanner sc) {
         while (true) {
             showBoard();
+            System.out.println("----> " + MegaBoard.player + " turn! <----");
             System.out.println("Playable at: " + allBoards.availablePosition.toText());
-            Position position = getPosition(sc);
+            Position position = Position.getUserPosition(sc, allBoards);
             allBoards.playAt(position, MegaBoard.player, sc);
             if (allBoards.isWin(MegaBoard.player)) {
                 System.out.println(MegaBoard.player + " winnnnn!");

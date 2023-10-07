@@ -12,24 +12,6 @@ public class TicTacToe {
         }
     }
 
-    private Position getUserPosition(Scanner sc) {
-        while (true) {
-            System.out.print("Input your play position: ");
-            String input = sc.nextLine();
-            try {
-                String[] posString = input.trim().split(" ");
-                Position position = new Position(posString[0], posString[1]);
-                if (data.isAlreadyPlay(position)) {
-                    throw new Exception("Can't play there");
-                }
-                return position;
-            } catch (Exception e) {
-                System.out.println(e);
-                continue;
-            }
-        }
-    }
-
     public char getWinner() {
         return data.winner;
     }
@@ -49,11 +31,11 @@ public class TicTacToe {
             Position pos;
             if (turn % 2 == 0) {
                 System.out.println("----> O turn <----");
-                pos = getUserPosition(sc);
+                pos = Position.getUserPosition(sc, data);
                 data.playAt(pos, 'O');
             } else {
                 System.out.println("----> X turn <----");
-                pos = getUserPosition(sc);
+                pos = Position.getUserPosition(sc, data);
                 data.playAt(pos, 'X');
             }
             turn++;
@@ -62,8 +44,7 @@ public class TicTacToe {
 
     public Position playOnce(char player, Scanner sc) {
         showBoard();
-        Position pos = getUserPosition(sc);
-        System.out.println("----> " + player + " turn <----");
+        Position pos = Position.getUserPosition(sc, data);
         data.playAt(pos, player);
         if (data.isOWin()) {
             System.out.println("O win!!!");
