@@ -29,9 +29,16 @@ public class MegaBoard {
     }
 
     public void playAt(Position position, char player, Scanner sc) {
+        new ClearScreen();
+        System.out.println("-------> Now " + MegaBoard.player + " turn! <-------");
+        System.out.println("-_-_-_- At " + position.toText() + " -_-_-_-");
         Position nextPos = getTicTacToe(position).playOnce(player, sc);
-        switchPlayer();
         setAllWinners();
+        if (isWin(player)) {
+            System.out.println("😳 player " + MegaBoard.player + " winnnnn!");
+            return;
+        }
+        switchPlayer();
         setAvailablePosition(nextPos);
     }
 

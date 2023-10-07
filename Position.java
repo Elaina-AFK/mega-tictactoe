@@ -13,12 +13,12 @@ public class Position {
 
     public static Position getUserPosition(Scanner sc, TicTacData data) {
         while (true) {
-            System.out.print("Input your play position: ");
+            System.out.print("Input your play position (row then column): ");
             String input = sc.nextLine();
             try {
                 String[] posString = input.trim().split(" ");
                 if (posString.length > 2) {
-                    System.out.println("Invalid Input: more than 2 spaces seperated value");
+                    System.out.println("Invalid Input: more than 2 space seperated value");
                     continue;
                 }
                 Position position = new Position(Integer.parseInt(posString[0]), Integer.parseInt(posString[1]));
@@ -32,7 +32,7 @@ public class Position {
                 }
                 return position;
             } catch (NumberFormatException e) {
-                System.out.println("Invalid String Input");
+                System.out.println("Invalid Input: Not a number");
                 continue;
             } catch (ArrayIndexOutOfBoundsException e) {
                 System.out.println("Invalid Input: There is only 0 or 1 value (space seperated)");
@@ -46,12 +46,12 @@ public class Position {
 
     public static Position getUserPosition(Scanner sc, MegaBoard data) {
         while (true) {
-            System.out.print("Input your play position: ");
+            System.out.print("Input your play position (row then column): ");
             String input = sc.nextLine();
             try {
                 String[] posString = input.trim().split(" ");
                 if (posString.length > 2) {
-                    System.out.println("Invalid Input: more than 2 spaces seperated value");
+                    System.out.println("Invalid Input: more than 2 space seperated value");
                     continue;
                 }
                 Position position = new Position(Integer.parseInt(posString[0]), Integer.parseInt(posString[1]));
@@ -65,7 +65,7 @@ public class Position {
                 }
                 return position;
             } catch (NumberFormatException e) {
-                System.out.println("Invalid String Input");
+                System.out.println("Invalid Input: Not a number");
                 continue;
             } catch (ArrayIndexOutOfBoundsException e) {
                 System.out.println("Invalid Input: There is only 0 or 1 value (space seperated)");
