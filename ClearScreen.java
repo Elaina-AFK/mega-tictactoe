@@ -1,4 +1,4 @@
-public class ClearScreen {
+class ClearScreen {
     public ClearScreen() {
         String os = System.getProperty("os.name").toLowerCase();
 

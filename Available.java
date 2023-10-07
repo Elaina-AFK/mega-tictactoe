@@ -2,8 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Available {
-    public List<Position> availablePosition;
+class Available {
+    private List<Position> availablePosition;
 
     public Available() {
         availablePosition = new ArrayList<Position>();

@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class MegaTicTacToe {
+class MegaTicTacToe {
     private MegaBoard allBoards = new MegaBoard();
 
     public void showBoard() {

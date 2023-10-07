@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class TicTacToe {
+class TicTacToe {
     private TicTacData data = new TicTacData();
 
     private void showBoard() {
@@ -16,7 +16,7 @@ public class TicTacToe {
         return data.winner;
     }
 
-    protected void play(Scanner sc) {
+    public void play(Scanner sc) {
         int turn = 0;
         while (true) {
             showBoard();

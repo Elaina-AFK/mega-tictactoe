@@ -1,14 +1,14 @@
 import java.util.Scanner;
 
-public class MegaBoard {
+class MegaBoard {
     public char winner = ' ';
-    static public char player = 'O';
+    static public char player = 'X';
     private TicTacToe[][] allTicTacToes = {
             { new TicTacToe(), new TicTacToe(), new TicTacToe() },
             { new TicTacToe(), new TicTacToe(), new TicTacToe() },
             { new TicTacToe(), new TicTacToe(), new TicTacToe() },
     };
-    public char[][] allWinner = new char[3][3];
+    private char[][] allWinner = new char[3][3];
     public Available availablePosition;
 
     public MegaBoard() {
@@ -24,7 +24,7 @@ public class MegaBoard {
         }
     }
 
-    public static void switchPlayer() {
+    private static void switchPlayer() {
         player = player == 'O' ? 'X' : 'O';
     }
 
@@ -46,7 +46,7 @@ public class MegaBoard {
         return allTicTacToes[position.row][position.column];
     }
 
-    public void setAvailablePosition(Position nextPosition) {
+    private void setAvailablePosition(Position nextPosition) {
         availablePosition = new Available();
         if (getTicTacToe(nextPosition).getWinner() == ' ') {
             availablePosition.addAvailable(nextPosition);
@@ -67,7 +67,7 @@ public class MegaBoard {
         return allWinner[position.row][position.column];
     }
 
-    public void setAllWinners() {
+    private void setAllWinners() {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 char winner = getTicTacToe(new Position(i, j)).getWinner();
@@ -80,7 +80,7 @@ public class MegaBoard {
         }
     }
 
-    public boolean isWin(char player) {
+    private boolean isWin(char player) {
         for (int i = 0; i < 3; i++) {
             if (getWinner(new Position(i, 0)) == player && getWinner(new Position(i, 1)) == player
                     && getWinner(new Position(i, 2)) == player) {

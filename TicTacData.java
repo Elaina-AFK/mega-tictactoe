@@ -1,6 +1,6 @@
-public class TicTacData {
+class TicTacData {
     public char winner = ' ';
-    public int playCount = 0;
+    private int playCount = 0;
     private char[][] data = {
             { ' ', ' ', ' ' },
             { ' ', ' ', ' ' },
