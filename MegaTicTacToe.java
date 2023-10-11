@@ -23,6 +23,7 @@ class MegaTicTacToe {
             Position position = Position.getUserPosition(sc, allBoards);
             allBoards.playAt(position, MegaBoard.player, sc);
             if (allBoards.winner != ' ') {
+                showBoard();
                 return;
             }
         }

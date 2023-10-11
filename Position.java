@@ -13,7 +13,7 @@ class Position {
 
     public static Position getUserPosition(Scanner sc, TicTacData data) {
         while (true) {
-            System.out.print("Input your play position (row then column): ");
+            System.out.print("Input your play position (row then column space seperated): ");
             String input = sc.nextLine();
             try {
                 String[] posString = input.trim().split(" ");
@@ -46,7 +46,7 @@ class Position {
 
     public static Position getUserPosition(Scanner sc, MegaBoard data) {
         while (true) {
-            System.out.print("Input your play position (row then column): ");
+            System.out.print("Input your play position (row then column space seperated): ");
             String input = sc.nextLine();
             try {
                 String[] posString = input.trim().split(" ");
