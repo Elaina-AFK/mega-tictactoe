@@ -20,7 +20,14 @@ class MegaTicTacToe {
             System.out.println("-------> Now " + MegaBoard.player + " turn! <-------");
             showBoard();
             System.out.println("Playable at: " + allBoards.availablePosition.toText());
-            Position position = Position.getUserPosition(sc, allBoards);
+            Position position = new Position(0, 0);
+            while (true) {
+                position = Position.getUserPosition(sc, allBoards);
+                if (allBoards.availablePosition.havePosition(position)) {
+                    break;
+                }
+                System.out.println("Invalid Input: position not available");
+            }
             allBoards.playAt(position, MegaBoard.player, sc);
             if (allBoards.winner != ' ') {
                 showBoard();
